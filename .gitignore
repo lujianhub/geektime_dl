@@ -42,3 +42,5 @@ nosetests.xml
 # tmp files
 cookie.json
 sqlite3.db
+
+ebook/
