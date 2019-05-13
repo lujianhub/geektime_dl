@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>11|组织好代码段，让人对它“一见钟情”</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>11|组织好代码段，让人对它“一见钟情”</h1>
+
+<p>当我们看到一个事物的时候，它的轮廓首先进入视野，给了我们第一印象。如果第一印象没有吸引到我们，那我们就不会集中注意力去关注它，也不会想去认识它。</p><p>我觉得有个俗语非常好地概括了这个认知习惯。这个俗语就是“不起眼”，更通俗一点的说法是“放在人群里认不出来”。</p><p>不管我们愿不愿意，第一印象特别影响我们的判断和心情。我们看到美好的东西，自己也跟着高兴；看到乱糟糟的东西，自己也感觉乱糟糟的。</p><p>代码也是这样的。如果我们看到整齐、清爽的代码，我们就对它有好感，愿意阅读，也愿意改进。 如果代码一团糟，风格混乱，我们就特别想静静地走开，一行都不想看。</p><p>前面的几讲中，我们讨论了注释、声明、格式、注解等编码规范。现在，是时候把这些零散的知识放到一块儿了。这些规范组合在一起，就会让代码既有让人喜悦的轮廓，也有让人清爽的细节。</p><p>这一次，我们将使用大量的例子，从代码文件头部结构、对象结构、类的内部结构、方法的代码结构、限定词的使用以及空行的使用这六大维度，来说明到底该怎么组织一个源代码文件。</p><h2>代码文件头部结构</h2><p>一般来说，一个源代码文件的开始部分包含三项内容。 按照出现顺序，分别为：</p><ol>
+<li>
+<p>版权和许可声明；</p>
+</li>
+<li>
+<p>命名空间（package）；</p>
+</li>
+<li>
+<p>外部依赖（import）。</p>
+</li>
+</ol><!-- [[[read_end]]] --><p>下面就是一个例子。</p><p><img src="f2e8831e-5a40-4a15-afa1-139c94f8d7d3.jpg" alt=""><br>
+在版权部分中，“2003, 2013”中的2003表示的是代码的诞生日期，2013表示的是代码的最近更改日期。需要注意的是，每次代码变更，都要更改代码的最近更改日期。</p><h2>代码文件对象结构</h2><p>紧随着源代码的头部，是对目标类的定义，这一部分包含三个部分。 按照出现顺序，分别为：</p><ol>
+<li>
+<p>类的规范；</p>
+</li>
+<li>
+<p>类的声明；</p>
+</li>
+<li>
+<p>类的属性和方法。</p>
+</li>
+</ol><p>这一部分中，我们需要注意的是，对于公共类，需要使用since标签，标明从哪一个版本开始定义了这个类。 这样的标明，方便我们对类进行版本管理，减少我们进行代码变更时的工作量。</p><p><img src="7268e339-b9d9-4602-ab19-27271df3fc02.jpg" alt=""><br>
+比如在上面的例子中，如果需要修改Readable，当看到“since 1.5”的标签时，我们就不需要检查Java 1.4的代码了。</p><p>你也许会问，为什么Java 1.4不能使用Readable呢？since标签同样可以给你答案，因为Readable是从Java 1.5开始才有的接口。</p><p>这些问题虽然简单，但是如果没有使用since标签，答案就没有这么直观明显了。</p><h2>类的内部代码结构</h2><p>类的属性和方法，一般是一个代码文件的主要组成部分。类的结构，推荐的编码顺序依次为：</p><ol>
+<li>
+<p>类的属性；</p>
+</li>
+<li>
+<p>构造方法；</p>
+</li>
+<li>
+<p>工厂方法；</p>
+</li>
+<li>
+<p>其他方法。</p>
+</li>
+</ol><p>我摘抄了一段JDK的代码，你看这样是不是更干净整洁？</p><p><img src="02ab1b3e-a584-4869-a26f-3a9d8809a684.jpg" alt=""><br>
+上面的代码案例中没有用到工厂方法，我来讲一下这个。</p><p>类似于构造方法，工厂方法也是用来构造一个类的实例。不同的是，工厂方法有具体的返回值。它可以是静态方法，也可以是实例方法。</p><p>如果是实例方法，工厂方法还可以被子类重写。这是工厂方法和构造方法的另外一个重要的区别。由于工厂方法也扮演着构造类实例的功能，我们一般把它放在构造方法的后面，其他方法的前面。</p><p><img src="8b8a1163-8b39-4f5a-97cf-6c7249278266.jpg" alt=""></p><h2>方法的代码结构</h2><p>讲完了类的内部代码结构，我们再来讲讲方法的代码结构。一般来说，一个方法需要包含三项内容：</p><ol>
+<li>
+<p>方法的规范；</p>
+</li>
+<li>
+<p>方法的声明；</p>
+</li>
+<li>
+<p>方法的实现。</p>
+</li>
+</ol><p>内部类的内部方法，可以没有第一部分。但对于公开类的公开方法，方法的规范一定不能缺失。 一个典型的规范，应该包含以下十个部分：</p><ol>
+<li>
+<p>方法的简短介绍；</p>
+</li>
+<li>
+<p>方法的详细介绍（可选项）；</p>
+</li>
+<li>
+<p>规范的注意事项 (使用apiNote标签，可选项)；</p>
+</li>
+<li>
+<p>实现方法的要求 (使用implSpec标签，可选项)；</p>
+</li>
+<li>
+<p>实现的注意事项 (使用implNote标签，可选项)；</p>
+</li>
+<li>
+<p>方法参数的描述；</p>
+</li>
+<li>
+<p>返回值的描述；</p>
+</li>
+<li>
+<p>抛出异常的描述：需要注意的是，抛出异常的描述部分，不仅要描述检查型异常，还要描述运行时异常；</p>
+</li>
+<li>
+<p>参考接口索引（可选项）；</p>
+</li>
+<li>
+<p>创始版本（可选项）。</p>
+</li>
+</ol><p>下面的这个例子，也是来自JDK的源代码。你可以清晰地看到，这段代码中的规范是非常典型的。</p><p><img src="3d0dfb05-5290-43b1-a5d5-635fad365699.jpg" alt=""><br>
+如果方法的创始版本和它所属类的创始版本一致，方法的创始版本描述可以省略。 要不然，一定要加入方法的创始版本标签。</p><p>像下面这个例子，就添加了创始版本标签。</p><p><img src="108724b0-f76d-49a4-b917-b7db88f4801c.jpg" alt=""></p><h2>按顺序使用限定词</h2><p>在声明一个类、方法或者方法属性时，为了更准确地描述和理解声明的适用场景，我们通常要使用修饰性的关键词。这些修饰性的关键词，我们通常称它们是修饰符或者限定词。 一个声明，可以使用多个限定词。</p><p>Java的语法中，限定词的使用顺序没有强制性规定。但是，限定词的使用顺序有一个约定俗成的规则。按照这个规则使用限定词，一般来说，我们最关切的修饰符最先进入我们的视野，和标识符最密切的位置最靠近标识符。使用一致性的顺序，我们就能更快速地理解一个声明。</p><p>限定词推荐使用顺序：</p><ol>
+<li>
+<p>public/private/protected （访问控制限定词，制定访问权限）</p>
+</li>
+<li>
+<p>abstract （抽象类或者抽象方法，具体实现由子类完成）</p>
+</li>
+<li>
+<p>static （静态类、方法或者类属性）</p>
+</li>
+<li>
+<p>final （定义不能被修改的类、方法或者类属性）</p>
+</li>
+<li>
+<p>transient（定义不能被序列化的类属性）</p>
+</li>
+<li>
+<p>volatile（定义使用主内存的变量）</p>
+</li>
+<li>
+<p>default（声明缺省的方法）</p>
+</li>
+<li>
+<p>synchronized（声明同步的方法）</p>
+</li>
+<li>
+<p>native（声明本地的方法，也就是Java以外的语言实现的方法）</p>
+</li>
+<li>
+<p>strictfp（声明使用精确浮点运算）</p>
+</li>
+</ol><p><img src="f301879a-2783-442d-803f-c9c895e62419.jpg" alt=""></p><h2>使用空行分割代码块</h2><p>我们之前讲过怎么整理代码，一个重要的原则就是“给代码分块”，通过空格、缩进、空行实现这个目的。</p><p>再来回顾一下空行的作用，空行用于垂直分割，用于分开同级别的不同代码块。</p><p>我们可以使用空行分割如下的代码块：</p><ol>
+<li>
+<p>版权和许可声明代码块；</p>
+</li>
+<li>
+<p>命名空间代码块；</p>
+</li>
+<li>
+<p>外部依赖代码块</p>
+</li>
+<li>
+<p>类的代码块；</p>
+</li>
+<li>
+<p>类的属性与方法之间；</p>
+</li>
+<li>
+<p>类的方法之间；</p>
+</li>
+<li>
+<p>方法实现的信息块之间。</p>
+</li>
+</ol><p><img src="6ba97cd4-a381-44b2-8055-01eccb6add65.jpg" alt=""></p><h2>小结</h2><p>对于软件开发者来说，组织代码是一项基本技能，也是我们需要养成的好习惯。组织代码有许多不同的习惯和策略，我们要学会辨别这些策略中哪些是有效的，哪些是有害的。</p><p>怎么辨别呢？</p><p>和其他技能一样，最快的提升方法是仔细思考一下为什么我们要做出这样的选择，而不是其他的。知其然远远不够，还要知其所以然。</p><p>你可以试着看看你的项目，源代码是按照这种方式组织的吗？哪些部分采用了合理的组织方式，哪些部分还有改进的空间？哪些是值得分享的经验？欢迎你把想法分享在留言区，我们一起来学习。</p><h2>一起来动手</h2><p>下面的这段Java代码，我们已经很熟悉了。前面，我们对它做过很多方面的修改。这一次，我们把前面的修改集中起来。你试着去找到所有可以改进的地方，然后比较一下修改前和修改后的代码。你有什么感受？</p><p>欢迎你把优化的代码公布在讨论区，让我们一起来感受、来欣赏！</p><p>也欢迎点击“<span class="orange">请朋友读</span>”，把这篇文章分享给你的朋友或者同事，一起来体验修改代码的快感。</p><pre><code>import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+    /**
+     * Given an array of integers, return indices of the two numbers
+     * such that they add up to a specific target.
+     */
+    public int[] twoSum(int[] nums, int target) {
+        Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
+        for (int i = 0; i &lt; nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] { map.get(complement), i };
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException(&quot;No two sum solution&quot;);
+    }
+}
+</code></pre><p><img src="d8c47b21-3752-4228-ab4a-50eb7ecda29f.jpg" alt=""></p><h2>精选留言：</h2>
+        <ul>
+        
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;line-height:1.2">
+            老杨同志  2019-01-27 20:13:52
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">
+            &#47;*<br>	Copyright (c) 2019 leetcode 算法练习<br>	给定整形数组和目标值，求数组中那两个元素之和等于目标值<br>	example : 输入 [2,4,6,7,] target = 10 ;return [4,6]<br>*&#47;<br><br>import java.util.HashMap;<br>import java.util.Map;<br><br>class Solution {<br><br>		&#47;&#47;为了展示属性应该放的位置，强加属性，关键字顺序也是老师推荐的<br>		private static final long serialVersionUID = 5454155825314635342L;<br>		<br>		&#47;&#47;只有一个构造方法可以省略，多个构造方法时，空实现换行加注解<br>		public Solution(){<br>			&#47;&#47;blank 空实现<br>		}<br>		<br>    &#47;**<br>     * Given an array of integers, return indices of the two numbers<br>     * such that they add up to a specific target.<br>     * return int[0] if nums==null or nums.length==0 or result not found.<br>     *&#47;<br>    public int[] twoSum(int[] nums, int target) {<br>    <br>    		&#47;&#47;check 代码块之间空行隔开<br>    		if (nums==null || nums.length==0) {<br>    			return new int[0];&#47;&#47;老师提示返回int[0]避免空指针<br>    		}<br>    		<br>    		&#47;&#47;algorithm begin<br>        Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();<br>        for (int i = 0; i &lt; nums.length; i++) {<br>            int complement = target - nums[i];<br>            if (map.containsKey(complement)) {<br>                return new int[] { map.get(complement), i };<br>            }<br>            map.put(nums[i], i);<br>        }<br>        <br>        &#47;&#47;not found<br>        return new int[0];<br>    }<br>} [3赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;line-height:1.2">作者回复2019-01-28 14:19:10</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">改的不错，还有一些小问题，有的我们还没有讲到。</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;line-height:1.2">
+            北风一叶  2019-03-07 19:12:39
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">
+            谢谢老师的整理 以后有法可依了 [1赞]
+        </div>
+        
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;line-height:1.2">
+            苦行僧  2019-01-28 06:24:52
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">
+            一般用静态检查工具去发现问题 [1赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;line-height:1.2">作者回复2019-01-28 14:16:16</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">嗯，检查工具有反馈，多查到几次问题，慢慢我们就知道怎么规避这些问题了。</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;line-height:1.2">
+            DemonLee  2019-01-27 21:17:29
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">
+            老师，类的声明与方法或属性之间没有强制要求换行分割吧，有些同事喜欢这样干。<br>public class Xxx{<br>&#47;&#47;换行<br>private String xxx;<br>} 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;line-height:1.2">作者回复2019-01-28 00:00:17</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">一般不要求分割。 缩进已经表明了这是下一级代码块。 换行的时候，大都是声明一行写不完，要用两行或者多行。 如果两个代码块视觉分割不清楚，可以多一个空行。</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;line-height:1.2">
+            王智  2019-01-27 20:31:19
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">
+            好规范呀,发现自己以前写的代码好多都不规范!!!<br>课后习题在我看来: <br>1. 类没有介绍<br>2.方法前面介绍不全,必要的没写,比如说抛出的异常,参数等等<br>3.方法内没有空行分割,看起来一大片.<br>这就是我的看法,这篇文章的规范有点多,需要好好看一下.<br>加油!!! 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;line-height:1.2">作者回复2019-01-28 14:13:20</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">找的不错，还有一些问题，我们后面还会讲。</div>
+</div>
+            
+    </div>
+</li>
+            </ul>
+
+</body>
+</html>

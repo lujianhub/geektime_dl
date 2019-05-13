@@ -122,22 +122,22 @@ class EBook(Command):
                 print("{} exists ".format(self._title(course_data)))
             else:
                 make_mobi(source_dir=os.path.join(out_dir, course_data['column_title']), output_dir=out_dir)
-        if push:
+                if push:
 
-            fn = os.path.join(out_dir, "{}.mobi".format(self._title(course_data)))
-            if os.path.getsize(fn) / 1024.0 / 1024 > 50:
-                print("电子书大小超过50M")
-                return
-            f = open(fn, 'rb')
-            d = f.read()
-            f.close()
+                    fn = os.path.join(out_dir, "{}.mobi".format(self._title(course_data)))
+                    if os.path.getsize(fn) / 1024.0 / 1024 > 50:
+                        print("电子书大小超过50M")
+                        return
+                    f = open(fn, 'rb')
+                    d = f.read()
+                    f.close()
 
-            with open('smtp.conf') as f:
-                smtp_conf = json.loads(f.read())
-            m = MailServer(host=smtp_conf['host'], port=smtp_conf['port'], user=smtp_conf['user'], password=smtp_conf['password'], encryption=smtp_conf['encryption'])
-            message = m.build_email(email_to=smtp_conf['email_to'], subject='convert', body='', attachments=[("{}.mobi".format(self._title(course_data)), d)])
-            m.send_email(message)
-            print("push to kindle done")
+                    with open('smtp.conf') as f:
+                        smtp_conf = json.loads(f.read())
+                    m = MailServer(host=smtp_conf['host'], port=smtp_conf['port'], user=smtp_conf['user'], password=smtp_conf['password'], encryption=smtp_conf['encryption'])
+                    message = m.build_email(email_to=smtp_conf['email_to'], subject='convert', body='', attachments=[("{}.mobi".format(self._title(course_data)), d)])
+                    m.send_email(message)
+                    print("push to kindle done")
 
     def _timestamp2str(self, timestamp):
         if not timestamp:
@@ -206,9 +206,9 @@ class EbookBatch(EBook):
                 if c['update_frequency'] == '全集':
                     super(EbookBatch, self).run([str(c['id'])] + args)
                     print('\n')
-                else:
-                    super(EbookBatch, self).run([str(c['id']), '--source-only'] + args)
-                    print('\n')
+                # else:
+                #     super(EbookBatch, self).run([str(c['id']), '--source-only'] + args)
+                #     print('\n')
 
         else:
             course_ids = args[0]

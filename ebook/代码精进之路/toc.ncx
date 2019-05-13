@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en-US">
+    <head>
+        <meta name="dtb:uid" content="BookId"/>
+        <meta name="dtb:depth" content="2"/>
+        <meta name="dtb:totalPageCount" content="0"/>
+        <meta name="dtb:maxPageNumber" content="0"/>
+    </head>
+    <docTitle>
+        <text>jachinlin.github.io2019-05-13</text>
+    </docTitle>
+    <docAuthor>
+        <text>jachinlin.github.io</text>
+    </docAuthor>
+    <navMap>
+
+        <navPoint class="toc" id="toc" playOrder="1">
+            <navLabel>
+                <text>Table of Contents</text>
+            </navLabel>
+            <content src="toc.html"/>
+        </navPoint>
+
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_1"
+                    playOrder="2">
+                <navLabel>
+                    <text>简介</text>
+                </navLabel>
+                <content src="简介.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_2"
+                    playOrder="3">
+                <navLabel>
+                    <text>开篇词|你写的每一行代码，都是你的名片</text>
+                </navLabel>
+                <content src="开篇词|你写的每一行代码，都是你的名片.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_3"
+                    playOrder="4">
+                <navLabel>
+                    <text>01|从条件运算符说起，反思什么是好代码</text>
+                </navLabel>
+                <content src="01|从条件运算符说起，反思什么是好代码.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_4"
+                    playOrder="5">
+                <navLabel>
+                    <text>02|把错误关在笼子里的五道关卡</text>
+                </navLabel>
+                <content src="02|把错误关在笼子里的五道关卡.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_5"
+                    playOrder="6">
+                <navLabel>
+                    <text>Q&A加餐丨关于代码质量，你关心的那些事儿</text>
+                </navLabel>
+                <content src="Q&A加餐丨关于代码质量，你关心的那些事儿.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_6"
+                    playOrder="7">
+                <navLabel>
+                    <text>03|优秀程序员的六个关键特质</text>
+                </navLabel>
+                <content src="03|优秀程序员的六个关键特质.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_7"
+                    playOrder="8">
+                <navLabel>
+                    <text>04|代码规范的价值：复盘苹果公司的GoToFail漏洞</text>
+                </navLabel>
+                <content src="04|代码规范的价值：复盘苹果公司的GoToFail漏洞.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_8"
+                    playOrder="9">
+                <navLabel>
+                    <text>05|经验总结：如何给你的代码起好名字？</text>
+                </navLabel>
+                <content src="05|经验总结：如何给你的代码起好名字？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_9"
+                    playOrder="10">
+                <navLabel>
+                    <text>06|代码整理的关键逻辑和最佳案例</text>
+                </navLabel>
+                <content src="06|代码整理的关键逻辑和最佳案例.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_10"
+                    playOrder="11">
+                <navLabel>
+                    <text>07|写好注释，真的是小菜一碟吗？</text>
+                </navLabel>
+                <content src="07|写好注释，真的是小菜一碟吗？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_11"
+                    playOrder="12">
+                <navLabel>
+                    <text>08|写好声明的“八项纪律”</text>
+                </navLabel>
+                <content src="08|写好声明的“八项纪律”.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_12"
+                    playOrder="13">
+                <navLabel>
+                    <text>09|怎么用好Java注解？</text>
+                </navLabel>
+                <content src="09|怎么用好Java注解？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_13"
+                    playOrder="14">
+                <navLabel>
+                    <text>10|异常处理都有哪些陷阱？</text>
+                </navLabel>
+                <content src="10|异常处理都有哪些陷阱？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_14"
+                    playOrder="15">
+                <navLabel>
+                    <text>11|组织好代码段，让人对它“一见钟情”</text>
+                </navLabel>
+                <content src="11|组织好代码段，让人对它“一见钟情”.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_15"
+                    playOrder="16">
+                <navLabel>
+                    <text>12丨组织好代码文件，要有“用户思维”</text>
+                </navLabel>
+                <content src="12丨组织好代码文件，要有“用户思维”.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_16"
+                    playOrder="17">
+                <navLabel>
+                    <text>13|接口规范，是协作的合约</text>
+                </navLabel>
+                <content src="13|接口规范，是协作的合约.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_17"
+                    playOrder="18">
+                <navLabel>
+                    <text>14|怎么写好用户指南？</text>
+                </navLabel>
+                <content src="14|怎么写好用户指南？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_18"
+                    playOrder="19">
+                <navLabel>
+                    <text>15|编写规范代码的检查清单</text>
+                </navLabel>
+                <content src="15|编写规范代码的检查清单.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_19"
+                    playOrder="20">
+                <navLabel>
+                    <text>16丨代码“规范”篇用户答疑</text>
+                </navLabel>
+                <content src="16丨代码“规范”篇用户答疑.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_20"
+                    playOrder="21">
+                <navLabel>
+                    <text>17|为什么需要经济的代码？</text>
+                </navLabel>
+                <content src="17|为什么需要经济的代码？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_21"
+                    playOrder="22">
+                <navLabel>
+                    <text>18丨思考框架：什么样的代码才是高效的代码？</text>
+                </navLabel>
+                <content src="18丨思考框架：什么样的代码才是高效的代码？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_22"
+                    playOrder="23">
+                <navLabel>
+                    <text>19|怎么避免过度设计？</text>
+                </navLabel>
+                <content src="19|怎么避免过度设计？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_23"
+                    playOrder="24">
+                <navLabel>
+                    <text>20|简单和直观，是永恒的解决方案</text>
+                </navLabel>
+                <content src="20|简单和直观，是永恒的解决方案.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_24"
+                    playOrder="25">
+                <navLabel>
+                    <text>21|怎么设计一个简单又直观的接口？</text>
+                </navLabel>
+                <content src="21|怎么设计一个简单又直观的接口？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_25"
+                    playOrder="26">
+                <navLabel>
+                    <text>22丨高效率，从超越线程同步开始！</text>
+                </navLabel>
+                <content src="22丨高效率，从超越线程同步开始！.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_26"
+                    playOrder="27">
+                <navLabel>
+                    <text>23|怎么减少内存使用，减轻内存管理负担？</text>
+                </navLabel>
+                <content src="23|怎么减少内存使用，减轻内存管理负担？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_27"
+                    playOrder="28">
+                <navLabel>
+                    <text>24|黑白灰，理解延迟分配的两面性</text>
+                </navLabel>
+                <content src="24|黑白灰，理解延迟分配的两面性.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_28"
+                    playOrder="29">
+                <navLabel>
+                    <text>25|使用有序的代码，调动异步的事件</text>
+                </navLabel>
+                <content src="25|使用有序的代码，调动异步的事件.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_29"
+                    playOrder="30">
+                <navLabel>
+                    <text>26|有哪些招惹麻烦的性能陷阱？</text>
+                </navLabel>
+                <content src="26|有哪些招惹麻烦的性能陷阱？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_30"
+                    playOrder="31">
+                <navLabel>
+                    <text>27|怎么编写可持续发展的代码？</text>
+                </navLabel>
+                <content src="27|怎么编写可持续发展的代码？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_31"
+                    playOrder="32">
+                <navLabel>
+                    <text>28|怎么尽量“不写”代码？</text>
+                </navLabel>
+                <content src="28|怎么尽量“不写”代码？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_32"
+                    playOrder="33">
+                <navLabel>
+                    <text>29|编写经济代码的检查清单</text>
+                </navLabel>
+                <content src="29|编写经济代码的检查清单.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_33"
+                    playOrder="34">
+                <navLabel>
+                    <text>30丨“代码经济篇”答疑汇总</text>
+                </navLabel>
+                <content src="30丨“代码经济篇”答疑汇总.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_34"
+                    playOrder="35">
+                <navLabel>
+                    <text>31|为什么安全的代码这么重要？</text>
+                </navLabel>
+                <content src="31|为什么安全的代码这么重要？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_35"
+                    playOrder="36">
+                <navLabel>
+                    <text>32|如何评估代码的安全缺陷？</text>
+                </navLabel>
+                <content src="32|如何评估代码的安全缺陷？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_36"
+                    playOrder="37">
+                <navLabel>
+                    <text>33|整数的运算有哪些安全威胁？</text>
+                </navLabel>
+                <content src="33|整数的运算有哪些安全威胁？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_37"
+                    playOrder="38">
+                <navLabel>
+                    <text>34|数组和集合，可变量的安全陷阱</text>
+                </navLabel>
+                <content src="34|数组和集合，可变量的安全陷阱.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_38"
+                    playOrder="39">
+                <navLabel>
+                    <text>35|怎么处理敏感信息？</text>
+                </navLabel>
+                <content src="35|怎么处理敏感信息？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_39"
+                    playOrder="40">
+                <navLabel>
+                    <text>36|继承有什么安全缺陷？</text>
+                </navLabel>
+                <content src="36|继承有什么安全缺陷？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_40"
+                    playOrder="41">
+                <navLabel>
+                    <text>37|边界，信任的分水岭</text>
+                </navLabel>
+                <content src="37|边界，信任的分水岭.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_41"
+                    playOrder="42">
+                <navLabel>
+                    <text>38|对象序列化的危害有多大？</text>
+                </navLabel>
+                <content src="38|对象序列化的危害有多大？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_42"
+                    playOrder="43">
+                <navLabel>
+                    <text>39|怎么控制好代码的权力？</text>
+                </navLabel>
+                <content src="39|怎么控制好代码的权力？.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_43"
+                    playOrder="44">
+                <navLabel>
+                    <text>40|规范，代码长治久安的基础</text>
+                </navLabel>
+                <content src="40|规范，代码长治久安的基础.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_44"
+                    playOrder="45">
+                <navLabel>
+                    <text>41|预案，代码的主动风险管理</text>
+                </navLabel>
+                <content src="41|预案，代码的主动风险管理.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_45"
+                    playOrder="46">
+                <navLabel>
+                    <text>42|纵深，代码安全的深度防御</text>
+                </navLabel>
+                <content src="42|纵深，代码安全的深度防御.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_46"
+                    playOrder="47">
+                <navLabel>
+                    <text>43|编写安全代码的最佳实践清单</text>
+                </navLabel>
+                <content src="43|编写安全代码的最佳实践清单.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_47"
+                    playOrder="48">
+                <navLabel>
+                    <text>44|“代码安全篇”答疑汇总</text>
+                </navLabel>
+                <content src="44|“代码安全篇”答疑汇总.html"/>
+
+                
+
+            </navPoint>
+        
+            
+            <navPoint
+                    class="chapter"
+                    id="chapter_48"
+                    playOrder="49">
+                <navLabel>
+                    <text>45|尾声：如何成为一个编程好手？</text>
+                </navLabel>
+                <content src="45|尾声：如何成为一个编程好手？.html"/>
+
+                
+
+            </navPoint>
+        
+
+    </navMap>
+</ncx>
