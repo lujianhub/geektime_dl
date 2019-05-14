@@ -1,5 +1,5 @@
 # coding=utf8
-
+import re
 import os
 import json
 import datetime
@@ -43,6 +43,13 @@ class EBook(Command):
         course_intro = course_intro
         articles = course_content
         column_title = course_intro['column_title']
+        for article in articles:
+            article['article_title'] = re.sub(r'[ ？?/／:：＊*<《》>\|丨｜、\\]', '_',
+                                              article['article_title'])  # windows not allowed
+            article['article_title'] = re.sub(r'([0-9])_*', r'\1', article['article_title'])  # number
+            article['article_title'] = re.sub('_*$', '', article['article_title'])  # end
+            article['article_title'] = re.sub('__', '_', article['article_title'])
+            article['article_title'] = re.sub('__', '_', article['article_title'])
 
         output_dir = os.path.join(out_dir, column_title)
         if not os.path.isdir(output_dir):
@@ -66,13 +73,13 @@ class EBook(Command):
         print('下载' + column_title + '目录' + ' done')
 
         for article in articles:
-
-            title = maker.format_file_name(article['article_title'])
+            article_title = article['article_title']
+            title = maker.format_file_name(article_title)
             if not force and os.path.isfile(os.path.join(output_dir, '{}.html'.format(title))):
                 print(title + ' exists')
                 continue
             maker.render_article_html(title, maker.parse_image(article['article_content'], output_dir), output_dir)
-            print('下载' + column_title + '：' + article['article_title'] + ' done')
+            print('下载' + column_title + '：' + article_title + ' done')
 
     def run(self, args):
 
@@ -118,7 +125,8 @@ class EBook(Command):
 
         # ebook
         if not source_only:
-            if course_data['update_frequency'] == '全集' and os.path.isfile(os.path.join(out_dir, self._title(course_data)) + '.mobi'):
+            if course_data['update_frequency'] == '全集' and os.path.isfile(
+                    os.path.join(out_dir, self._title(course_data)) + '.mobi'):
                 print("{} exists ".format(self._title(course_data)))
             else:
                 make_mobi(source_dir=os.path.join(out_dir, course_data['column_title']), output_dir=out_dir)
@@ -134,8 +142,10 @@ class EBook(Command):
 
                     with open('smtp.conf') as f:
                         smtp_conf = json.loads(f.read())
-                    m = MailServer(host=smtp_conf['host'], port=smtp_conf['port'], user=smtp_conf['user'], password=smtp_conf['password'], encryption=smtp_conf['encryption'])
-                    message = m.build_email(email_to=smtp_conf['email_to'], subject='convert', body='', attachments=[("{}.mobi".format(self._title(course_data)), d)])
+                    m = MailServer(host=smtp_conf['host'], port=smtp_conf['port'], user=smtp_conf['user'],
+                                   password=smtp_conf['password'], encryption=smtp_conf['encryption'])
+                    message = m.build_email(email_to=smtp_conf['email_to'], subject='convert', body='',
+                                            attachments=[("{}.mobi".format(self._title(course_data)), d)])
                     m.send_email(message)
                     print("push to kindle done")
 
@@ -154,7 +164,8 @@ class EBook(Command):
     <div style="color:#888;font-size:15.25px;font-weight:400;line-height:1.2">{}{}</div>
     <div style="color:#353535;font-weight:400;white-space:normal;word-break:break-all;line-height:1.6">{}</div>
 </div>
-            """.format(reply.get('user_name'), self._timestamp2str(reply.get('ctime')), reply.get('content')) if reply else ''
+            """.format(reply.get('user_name'), self._timestamp2str(reply.get('ctime')),
+                       reply.get('content')) if reply else ''
 
         c_html = """
 <li>
@@ -195,6 +206,7 @@ class EbookBatch(EBook):
     """批量制作电子书
     懒， 不想写参数了
     """
+
     def run(self, args):
         if '--all' in args:
             dc = DataClient()
@@ -217,6 +229,3 @@ class EbookBatch(EBook):
             for cid in cid_list:
                 super(EbookBatch, self).run([cid.strip()] + args)
                 print('\n')
-
-
-
