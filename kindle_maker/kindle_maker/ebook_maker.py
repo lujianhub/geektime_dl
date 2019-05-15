@@ -151,13 +151,14 @@ def make_ebook(source_dir, output_dir=None, make_mobi=False, link_html=True):
         # remove tmp dir
         shutil.rmtree(tmp_dir)
     if link_html:
-        link_toc_html(source_dir, output_dir, title)
+        link_toc_html(tmp_dir, output_dir, title)
 
 
 def link_toc_html(tmp_dir, output_dir, title):
     html_file = f"{os.path.join(output_dir, title + '.html')}"
+    toc_path = os.path.relpath(tmp_dir, output_dir)
     if not os.path.exists(html_file):
-        os.system(f"ln -s {os.path.abspath(os.path.join(tmp_dir, 'toc.html'))}  {html_file}")
+        os.system(f"ln -s {os.path.join(toc_path, 'toc.html')}  {html_file}")
 
 
 def make_mobi_command():

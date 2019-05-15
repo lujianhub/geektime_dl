@@ -36,20 +36,24 @@ class EBook(Command):
             t = c['column_title'] + '[未完待续{}]'.format(datetime.date.today())
         return t
 
+    def replace_window_file_name(self, file_name):
+        file_name = re.sub(r'[ ？?/／:：＊*<《》>\|丨｜、\\&]', '_', file_name)  # windows not allowed
+        file_name = re.sub(r'([0-9])_*', r'\1', file_name)  # number
+        file_name = re.sub('_*$', '', file_name)  # end
+        file_name = re.sub('__', '_', file_name)
+        file_name = re.sub('__', '_', file_name)
+        return file_name
+
     def render_column_source_files(self, course_intro, course_content, out_dir, force=False):
 
         # TODO refactor here
         # cover and introduction
         course_intro = course_intro
         articles = course_content
+        course_intro['column_title'] = self.replace_window_file_name(course_intro['column_title'])
         column_title = course_intro['column_title']
         for article in articles:
-            article['article_title'] = re.sub(r'[ ？?/／:：＊*<《》>\|丨｜、\\]', '_',
-                                              article['article_title'])  # windows not allowed
-            article['article_title'] = re.sub(r'([0-9])_*', r'\1', article['article_title'])  # number
-            article['article_title'] = re.sub('_*$', '', article['article_title'])  # end
-            article['article_title'] = re.sub('__', '_', article['article_title'])
-            article['article_title'] = re.sub('__', '_', article['article_title'])
+            article['article_title'] = self.replace_window_file_name(article['article_title'])
 
         output_dir = os.path.join(out_dir, column_title)
         if not os.path.isdir(output_dir):
@@ -212,15 +216,20 @@ class EbookBatch(EBook):
             dc = DataClient()
             data = dc.get_course_list()
 
-            for c in data['1']['list'] + data['2']['list']:
-                if not c['had_sub']:
-                    continue
-                if c['update_frequency'] == '全集':
-                    super(EbookBatch, self).run([str(c['id'])] + args)
-                    print('\n')
-                # else:
-                #     super(EbookBatch, self).run([str(c['id']), '--source-only'] + args)
-                #     print('\n')
+            for i in [1, 2]:
+                for c in data[str(i)]['list']:
+                    if not c['had_sub']:
+                        continue
+                    if True:
+                        # if c['update_frequency'] == '全集':
+                        try:
+                            super(EbookBatch, self).run([str(c['id'])] + args)
+                            print('\n')
+                        except Exception as e:
+                            print(e)
+                    # else:
+                    #     super(EbookBatch, self).run([str(c['id']), '--source-only'] + args)
+                    #     print('\n')
 
         else:
             course_ids = args[0]
